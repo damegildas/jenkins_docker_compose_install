@@ -1,0 +1,41 @@
+Pour libérer de l'espace disque sur Ubuntu, vous pouvez effectuer plusieurs actions, notamment :
+
+Vérifier l'espace disque disponible :
+bash
+Copy code
+df -h
+Cette commande affiche l'utilisation de l'espace disque sur toutes les partitions. Vous pouvez ainsi identifier quelles partitions sont pleines.
+
+Supprimer les fichiers temporaires :
+bash
+Copy code
+sudo rm -rf /tmp/*
+Cette commande supprime tous les fichiers temporaires du répertoire /tmp.
+
+Nettoyer le cache APT :
+bash
+Copy code
+sudo apt-get clean
+Cela supprime les fichiers téléchargés et stockés dans le cache du gestionnaire de paquets APT.
+
+Supprimer les anciens fichiers de journalisation :
+bash
+Copy code
+sudo journalctl --vacuum-size=XXXM
+Remplacez XXX par la taille que vous souhaitez conserver pour les journaux. Par exemple, pour conserver 100 mégaoctets de journaux, utilisez sudo journalctl --vacuum-size=100M.
+
+Utiliser un outil de nettoyage de disque :
+bash
+Copy code
+sudo apt-get install bleachbit
+sudo bleachbit
+BleachBit est un outil de nettoyage de disque qui vous permet de supprimer les fichiers temporaires, les caches des navigateurs, les miniatures, etc.
+
+Vérifier les grands fichiers et répertoires :
+bash
+Copy code
+sudo du -h / | grep '[0-9\.]\+G'
+Cette commande liste les répertoires et fichiers de plus d'un gigaoctet dans le système de fichiers racine (/). Vous pouvez ajuster le chemin selon vos besoins.
+
+Supprimer les applications inutilisées ou dont vous n'avez plus besoin.
+Après avoir effectué ces actions, vérifiez à nouveau l'utilisation de l'espace disque avec la commande df -h pour voir si vous avez libéré de l'espace.
